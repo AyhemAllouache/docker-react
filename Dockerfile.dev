@@ -1,0 +1,16 @@
+FROM node:alpine
+
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+RUN npm install --save-dev @testing-library/react@latest
+RUN npm install --save-dev @testing-library/jest-dom@latest
+RUN npm install --save-dev @testing-library/user-event@latest
+
+COPY . .
+
+CMD [ "npm","run","start" ]
+
